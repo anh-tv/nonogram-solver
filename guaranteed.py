@@ -35,4 +35,3 @@ if __name__ == "__main__":
     tomography = list(map(int, args[2].split(",")))
     result = get_guaranteed(length, tomography)
     print("".join(map(lambda x: "o" if x else "x", result)))
-
