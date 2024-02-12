@@ -8,12 +8,12 @@ with open("table.txt", "r") as f:
         tomography = list(map(int, data[i].strip().split(",")))
         row_result = get_guaranteed(cols, tomography)
         for index, value in enumerate(row_result):
-            table[i - 1][index] = value
+            table[i - 1][index] = True if value else table[i - 1][index]
     for j in range(1 + rows, 1 + rows + cols):
         tomography = list(map(int, data[j].strip().split(",")))
         cols_result = get_guaranteed(rows, tomography)
         for index, value in enumerate(cols_result):
-            table[index][j - 1 - rows] = value
+            table[index][j - 1 - rows] = True if value else table[index][j - 1 - rows]
 
     for row in table:
         print("".join(map(lambda x: "█" if x else "<", row)))
